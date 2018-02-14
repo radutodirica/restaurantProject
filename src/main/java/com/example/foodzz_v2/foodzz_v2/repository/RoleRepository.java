@@ -1,7 +1,7 @@
 package com.example.foodzz_v2.foodzz_v2.repository;
 
 
-import com.example.foodzz_v2.foodzz_v2.domain.Role;
+import com.example.foodzz_v2.foodzz_v2.persistance.Role;
 import org.springframework.data.repository.CrudRepository;
 
 /**
