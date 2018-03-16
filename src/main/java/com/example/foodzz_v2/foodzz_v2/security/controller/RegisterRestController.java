@@ -24,7 +24,7 @@ public class RegisterRestController {
     @Autowired
     private DatabaseUserService databaseUserService;
 
-    @RequestMapping(value="/api/auth/register", method= RequestMethod.POST,
+    @RequestMapping(value="/auth/register", method= RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
