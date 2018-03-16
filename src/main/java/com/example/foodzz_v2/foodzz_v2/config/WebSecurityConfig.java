@@ -1,7 +1,7 @@
 package com.example.foodzz_v2.foodzz_v2.config;
 
-import com.example.foodzz_v2.foodzz_v2.security.JwtAuthenticationEntryPoint;
-import com.example.foodzz_v2.foodzz_v2.security.JwtAuthenticationTokenFilter;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtAuthenticationEntryPoint;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtAuthenticationTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -71,9 +71,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js"
                 ).permitAll()
-
-                // Un-secure H2 Database
-                .antMatchers("/h2-console/**/**").permitAll()
 
                 .antMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated();

@@ -1,4 +1,4 @@
-package com.example.foodzz_v2.foodzz_v2.security;
+package com.example.foodzz_v2.foodzz_v2.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,8 +12,7 @@ public class User {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
-    @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @Column(name = "USERNAME", length = 50, unique = true)

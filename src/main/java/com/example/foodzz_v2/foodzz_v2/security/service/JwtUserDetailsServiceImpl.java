@@ -1,7 +1,7 @@
 package com.example.foodzz_v2.foodzz_v2.security.service;
 
-import com.example.foodzz_v2.foodzz_v2.security.JwtUserFactory;
-import com.example.foodzz_v2.foodzz_v2.security.User;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtUserFactory;
+import com.example.foodzz_v2.foodzz_v2.model.User;
 import com.example.foodzz_v2.foodzz_v2.security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

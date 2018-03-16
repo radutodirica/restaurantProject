@@ -1,4 +1,6 @@
-package com.example.foodzz_v2.foodzz_v2.security;
+package com.example.foodzz_v2.foodzz_v2.model;
+
+import com.example.foodzz_v2.foodzz_v2.util.AuthorityName;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,8 +12,7 @@ public class Authority {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "authority_seq")
-    @SequenceGenerator(name = "authority_seq", sequenceName = "authority_seq", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @Column(name = "NAME", length = 50)

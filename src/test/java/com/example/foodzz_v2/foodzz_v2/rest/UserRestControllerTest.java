@@ -1,6 +1,11 @@
 package com.example.foodzz_v2.foodzz_v2.rest;
 
-import com.example.foodzz_v2.foodzz_v2.security.*;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtTokenUtil;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtUser;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtUserFactory;
+import com.example.foodzz_v2.foodzz_v2.model.Authority;
+import com.example.foodzz_v2.foodzz_v2.util.AuthorityName;
+import com.example.foodzz_v2.foodzz_v2.model.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.example.foodzz_v2.foodzz_v2.security;
+package com.example.foodzz_v2.foodzz_v2.jwt;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import io.jsonwebtoken.Claims;

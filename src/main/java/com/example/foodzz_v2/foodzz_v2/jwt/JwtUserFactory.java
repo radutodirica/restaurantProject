@@ -1,5 +1,7 @@
-package com.example.foodzz_v2.foodzz_v2.security;
+package com.example.foodzz_v2.foodzz_v2.jwt;
 
+import com.example.foodzz_v2.foodzz_v2.model.Authority;
+import com.example.foodzz_v2.foodzz_v2.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 

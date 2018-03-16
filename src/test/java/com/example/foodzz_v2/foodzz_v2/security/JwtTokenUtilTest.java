@@ -1,5 +1,6 @@
 package com.example.foodzz_v2.foodzz_v2.security;
-
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtTokenUtil;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtUser;
 import io.jsonwebtoken.Clock;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.assertj.core.util.DateUtil;
@@ -86,8 +87,6 @@ public class JwtTokenUtilTest {
     public void getAudienceFromToken() throws Exception {
         when(clockMock.now()).thenReturn(DateUtil.now());
         final String token = createToken();
-
-        assertThat(jwtTokenUtil.getAudienceFromToken(token)).isEqualTo(JwtTokenUtil.AUDIENCE_WEB);
     }
 
     @Test(expected = ExpiredJwtException.class)
@@ -135,14 +134,6 @@ public class JwtTokenUtilTest {
 
         String token = createToken();
         assertThat(jwtTokenUtil.validateToken(token, userDetails)).isTrue();
-    }
-
-    private Map<String, Object> createClaims(String creationDate) {
-        Map<String, Object> claims = new HashMap();
-        claims.put(JwtTokenUtil.CLAIM_KEY_USERNAME, TEST_USERNAME);
-        claims.put(JwtTokenUtil.CLAIM_KEY_AUDIENCE, "testAudience");
-        claims.put(JwtTokenUtil.CLAIM_KEY_CREATED, DateUtil.parseDatetime(creationDate));
-        return claims;
     }
 
     private String createToken() {

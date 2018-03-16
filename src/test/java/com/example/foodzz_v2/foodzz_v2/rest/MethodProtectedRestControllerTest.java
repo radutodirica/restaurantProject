@@ -1,6 +1,6 @@
 package com.example.foodzz_v2.foodzz_v2.rest;
 
-import com.example.foodzz_v2.foodzz_v2.security.JwtTokenUtil;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtTokenUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

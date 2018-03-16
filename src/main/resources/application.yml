@@ -13,13 +13,15 @@ spring:
       enabled: true
 
   datasource:
-    url: jdbc:h2:~/test;DB_CLOSE_ON_EXIT=FALSE
-    driverClassName: org.h2.Driver
-    username: sa
-    password:
+    url: "jdbc:mysql://localhost:3306/test_schema"
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: Kinetix@1920
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate.ddl-auto: update
 
 jwt:
   header: Authorization

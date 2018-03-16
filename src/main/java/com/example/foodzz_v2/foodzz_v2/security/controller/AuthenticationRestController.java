@@ -1,8 +1,8 @@
 package com.example.foodzz_v2.foodzz_v2.security.controller;
 
-import com.example.foodzz_v2.foodzz_v2.security.JwtAuthenticationRequest;
-import com.example.foodzz_v2.foodzz_v2.security.JwtTokenUtil;
-import com.example.foodzz_v2.foodzz_v2.security.JwtUser;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtAuthenticationRequest;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtTokenUtil;
+import com.example.foodzz_v2.foodzz_v2.jwt.JwtUser;
 import com.example.foodzz_v2.foodzz_v2.security.service.JwtAuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

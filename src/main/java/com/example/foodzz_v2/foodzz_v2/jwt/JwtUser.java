@@ -1,4 +1,4 @@
-package com.example.foodzz_v2.foodzz_v2.security;
+package com.example.foodzz_v2.foodzz_v2.jwt;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
