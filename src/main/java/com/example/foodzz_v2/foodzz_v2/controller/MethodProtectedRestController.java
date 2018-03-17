@@ -1,4 +1,4 @@
-package com.example.foodzz_v2.foodzz_v2.security.controller;
+package com.example.foodzz_v2.foodzz_v2.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,7 +1,7 @@
-package com.example.foodzz_v2.foodzz_v2.security.controller;
+package com.example.foodzz_v2.foodzz_v2.controller;
 
 import com.example.foodzz_v2.foodzz_v2.dto.UserDTO;
-import com.example.foodzz_v2.foodzz_v2.security.service.DatabaseUserService;
+import com.example.foodzz_v2.foodzz_v2.service.UserServiceImpl;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class RegisterRestController {
 
     @Autowired
-    private DatabaseUserService databaseUserService;
+    private UserServiceImpl userServiceImpl;
 
     @RequestMapping(value="/auth/register", method= RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -36,7 +36,7 @@ public class RegisterRestController {
 
         UserDTO userDTO = new UserDTO(new JSONObject(collect));
 
-        databaseUserService.saveUsername(userDTO);
+        userServiceImpl.saveUsername(userDTO);
 
         return ResponseEntity
                 .ok()

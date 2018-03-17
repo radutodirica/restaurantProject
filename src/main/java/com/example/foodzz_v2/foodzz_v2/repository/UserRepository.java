@@ -1,4 +1,4 @@
-package com.example.foodzz_v2.foodzz_v2.security.repository;
+package com.example.foodzz_v2.foodzz_v2.repository;
 
 
 import com.example.foodzz_v2.foodzz_v2.model.User;

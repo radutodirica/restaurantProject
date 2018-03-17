@@ -1,9 +1,9 @@
-package com.example.foodzz_v2.foodzz_v2.security.controller;
+package com.example.foodzz_v2.foodzz_v2.controller;
 
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtAuthenticationRequest;
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtTokenUtil;
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtUser;
-import com.example.foodzz_v2.foodzz_v2.security.service.JwtAuthenticationResponse;
+import com.example.foodzz_v2.foodzz_v2.service.JwtAuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +41,7 @@ public class AuthenticationRestController {
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
 
         // Perform the security
-        final Authentication authentication = authenticationManager.authenticate(
+heroku        final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         authenticationRequest.getUsername(),
                         authenticationRequest.getPassword()

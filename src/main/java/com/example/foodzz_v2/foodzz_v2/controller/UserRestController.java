@@ -1,4 +1,4 @@
-package com.example.foodzz_v2.foodzz_v2.security.controller;
+package com.example.foodzz_v2.foodzz_v2.controller;
 
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtTokenUtil;
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtUser;
