@@ -31,6 +31,8 @@ jwt:
     authentication:
       path: auth
       refresh: refresh
+    profile:
+      userprofile: profile
 
 logging:
   level:
