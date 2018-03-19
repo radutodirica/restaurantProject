@@ -53,8 +53,6 @@ public class AuthenticationRestController {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
         final String token = jwtTokenUtil.generateToken(userDetails, device);
 
-        //TODO custom messages for errors
-
         // Return the token
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
     }
