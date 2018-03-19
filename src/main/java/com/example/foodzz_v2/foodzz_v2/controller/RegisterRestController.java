@@ -31,7 +31,7 @@ public class RegisterRestController {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @RequestMapping(value="/auth/register", method= RequestMethod.POST,
+    @RequestMapping(value="${route.register}", method= RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
@@ -41,7 +41,7 @@ public class RegisterRestController {
 
         System.out.println("REQUEST: " +collect);
 
-        UserDTO userDTO = new UserDTO(new JSONObject(collect));
+        UserDTO userDTO = new UserDTO(collect);
 
         StatusObject statusObject = new StatusObject();
 

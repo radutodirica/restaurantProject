@@ -1,8 +1,9 @@
 package com.example.foodzz_v2.foodzz_v2.dto;
 
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 
-public class UserDTO {
+public class UserDTO{
     public String getUsername() {
         return username;
     }
@@ -19,20 +20,57 @@ public class UserDTO {
         this.password = password;
     }
 
-    public UserDTO(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public UserDTO getUserDTO() {
+        return userDTO;
     }
 
-    public UserDTO(JSONObject json){
-        if(json.has("username") && json.getString("username")!=null){
-            setUsername(json.getString("username"));
-        }
-        if(json.has("password") && json.getString("password")!=null){
-            setPassword(json.getString("password"));
-        }
+    public void setUserDTO(UserDTO userDTO) {
+        this.userDTO = userDTO;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public UserDTO(String response){
+        Gson gson = new Gson();
+        this.userDTO = gson.fromJson(response,UserDTO.class);
+    }
+
+    private UserDTO userDTO;
+
+    @SerializedName("username")
     private String username;
+
+    @SerializedName("password")
     private String password;
+
+    @SerializedName("firstName")
+    private String firstName;
+
+    @SerializedName("lastName")
+    private String lastName;
+
+    @SerializedName("email")
+    private String email;
 }
