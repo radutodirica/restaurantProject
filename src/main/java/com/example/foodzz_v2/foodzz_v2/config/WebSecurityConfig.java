@@ -63,6 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class)
                     .antMatcher("/getprofile")
-                    .antMatcher("/saveprofile");
+                    .antMatcher("/saveprofile")
+                    .antMatcher("/listrestaurants");
     }
 }

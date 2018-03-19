@@ -10,6 +10,38 @@ import java.util.List;
 @Table(name = "MENU")
 public class Menu {
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public List<SubMenu> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<SubMenu> menuList) {
+        this.menuList = menuList;
+    }
+
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -24,9 +56,9 @@ public class Menu {
     @NotNull
     private Double price;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = "SUBMENU_ITEMS",
+            name = "MENU_SUBMENU_ITEMS",
             joinColumns = {@JoinColumn(name = "MENU_ID", referencedColumnName = "ID")},
             inverseJoinColumns = {@JoinColumn(name = "SUBMENU_ID", referencedColumnName = "ID")})
     private List<SubMenu> menuList;

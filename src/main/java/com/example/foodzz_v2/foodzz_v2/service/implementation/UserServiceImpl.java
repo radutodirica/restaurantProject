@@ -1,14 +1,16 @@
-package com.example.foodzz_v2.foodzz_v2.service;
+package com.example.foodzz_v2.foodzz_v2.service.implementation;
 
 import com.example.foodzz_v2.foodzz_v2.dto.UserDTO;
+import com.example.foodzz_v2.foodzz_v2.model.Restaurant;
 import com.example.foodzz_v2.foodzz_v2.model.User;
 import com.example.foodzz_v2.foodzz_v2.repository.UserRepository;
-import com.example.foodzz_v2.foodzz_v2.service.serviceinterface.UserService;
+import com.example.foodzz_v2.foodzz_v2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.PersistenceException;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -59,4 +61,5 @@ public class UserServiceImpl implements UserService {
 
         this.userRepository.saveUserData(userId,userDTO.getFirstName(),userDTO.getLastName(),userDTO.getEmail());
     }
+
 }

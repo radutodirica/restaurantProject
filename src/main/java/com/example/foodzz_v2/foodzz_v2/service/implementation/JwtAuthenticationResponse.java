@@ -1,4 +1,4 @@
-package com.example.foodzz_v2.foodzz_v2.service;
+package com.example.foodzz_v2.foodzz_v2.service.implementation;
 
 import java.io.Serializable;
 

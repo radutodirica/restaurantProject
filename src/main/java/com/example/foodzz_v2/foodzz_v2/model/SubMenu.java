@@ -8,6 +8,30 @@ import javax.validation.constraints.Size;
 @Table(name = "SUBMENU")
 public class SubMenu {
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy=GenerationType.AUTO)

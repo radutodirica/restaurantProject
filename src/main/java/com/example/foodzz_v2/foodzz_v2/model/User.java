@@ -51,6 +51,13 @@ public class User {
             inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID")})
     private List<Authority> authorities;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "USER_RESTAURANTS",
+            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "RESTAURANT_ID", referencedColumnName = "ID")})
+    private List<Restaurant> restaurantList;
+
     public Long getId() {
         return id;
     }
@@ -121,5 +128,13 @@ public class User {
 
     public void setLastPasswordResetDate(Date lastPasswordResetDate) {
         this.lastPasswordResetDate = lastPasswordResetDate;
+    }
+
+    public List<Restaurant> getRestaurantList() {
+        return restaurantList;
+    }
+
+    public void setRestaurantList(List<Restaurant> restaurantList) {
+        this.restaurantList = restaurantList;
     }
 }

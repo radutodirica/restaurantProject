@@ -1,13 +1,15 @@
-package com.example.foodzz_v2.foodzz_v2.service.serviceinterface;
+package com.example.foodzz_v2.foodzz_v2.service;
 
 import com.example.foodzz_v2.foodzz_v2.dto.RestaurantDTO;
 import com.example.foodzz_v2.foodzz_v2.model.Restaurant;
 
 import javax.persistence.PersistenceException;
+import java.util.List;
 
 public interface RestaurantServices {
 
-    public Restaurant getbyName();
+    public Restaurant getById(Long id);
+    public Restaurant getByName(String name);
     public Restaurant saveRestaurant(RestaurantDTO restaurantDTO);
     public void updateRestaurant(RestaurantDTO restaurantDTO)throws PersistenceException;
 

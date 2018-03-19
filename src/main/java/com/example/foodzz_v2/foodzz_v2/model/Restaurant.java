@@ -9,6 +9,46 @@ import java.util.List;
 @Table(name = "RESTAURANT")
 public class Restaurant {
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public List<Menu> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<Menu> menuList) {
+        this.menuList = menuList;
+    }
+
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -27,15 +67,9 @@ public class Restaurant {
     @NotNull
     private Double longitude;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = "USER_ID",
-            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")})
-    private Long userId;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "MENU_ITEMS",
+            name = "RESTAURANT_MENU_ITEMS",
             joinColumns = {@JoinColumn(name = "RESTAURANT_ID", referencedColumnName = "ID")},
             inverseJoinColumns = {@JoinColumn(name = "MENU_ID", referencedColumnName = "ID")})
     private List<Menu> menuList;

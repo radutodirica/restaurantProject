@@ -8,16 +8,15 @@ spring:
     serialization:
       INDENT_OUTPUT: true
 
-  h2:
-    console:
-      enabled: true
-
   datasource:
-    url: "jdbc:mysql://localhost:3306/test_schema"
+    #url: "jdbc:mysql://localhost:3306/test_schema"
+    url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
     driverClassName: com.mysql.jdbc.Driver
-    username: root
+    #username: root
     #password: parola123 #home
-    password: Kinetix@1920
+    #password: Kinetix@1920
+    username: user_1920
+    password: kinetix1920
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -26,7 +25,7 @@ spring:
 
 jwt:
   header: Authorization
-  secret: mySecret
+  secret: /wKLE9vxudoWuZMwKHV63YCpADquNgt/K+HLPwfw0q4=
   expiration: 604800
 
 route:
@@ -37,6 +36,9 @@ route:
   profile:
     userprofile: getprofile
     saveprofile: saveprofile
+  restaurants:
+    listrestaurants: getRestaurants
+    ceraterestaurants: createRestaurant
 
 logging:
   level:

@@ -34,6 +34,14 @@ public class RestaurantDTO {
         this.restaurantDTO = gson.fromJson(response,RestaurantDTO.class);
     }
 
+    public RestaurantDTO getRestaurantDTO() {
+        return restaurantDTO;
+    }
+
+    public void setRestaurantDTO(RestaurantDTO restaurantDTO) {
+        this.restaurantDTO = restaurantDTO;
+    }
+
     private RestaurantDTO restaurantDTO;
 
     @SerializedName("name")
