@@ -3,7 +3,7 @@ package com.example.foodzz_v2.foodzz_v2.controller;
 import com.example.foodzz_v2.foodzz_v2.dto.RestaurantDTO;
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtTokenUtil;
 import com.example.foodzz_v2.foodzz_v2.model.Restaurant;
-import com.example.foodzz_v2.foodzz_v2.service.RestaurantServices;
+import com.example.foodzz_v2.foodzz_v2.service.RestaurantService;
 import com.example.foodzz_v2.foodzz_v2.service.UserService;
 import com.example.foodzz_v2.foodzz_v2.util.Messages;
 import com.example.foodzz_v2.foodzz_v2.util.StatusObject;
@@ -36,7 +36,7 @@ public class RestaurantController {
     private UserService userService;
 
     @Autowired
-    private RestaurantServices restaurantServices;
+    private RestaurantService restaurantServices;
 
     @Autowired
     Messages messages;

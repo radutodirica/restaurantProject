@@ -3,14 +3,14 @@ package com.example.foodzz_v2.foodzz_v2.service.implementation;
 import com.example.foodzz_v2.foodzz_v2.dto.RestaurantDTO;
 import com.example.foodzz_v2.foodzz_v2.model.Restaurant;
 import com.example.foodzz_v2.foodzz_v2.repository.RestaurantRepository;
-import com.example.foodzz_v2.foodzz_v2.service.RestaurantServices;
+import com.example.foodzz_v2.foodzz_v2.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.PersistenceException;
 
 @Service
-public class RestaurantServiceImpl implements RestaurantServices{
+public class RestaurantServiceImpl implements RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
 
