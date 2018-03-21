@@ -26,11 +26,11 @@ public class MenuController {
     @Autowired
     Messages messages;
 
-    @RequestMapping(value = "${route.menu.getMenus}/{id}", method = RequestMethod.GET,
+    @RequestMapping(value = "${route.menu.getmenus}/{id}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public @ResponseBody
-    ResponseEntity<Menu> getRestaurants(@PathVariable long id) {
+    ResponseEntity<Menu> getMenus(@PathVariable int id) {
 
         Menu menu = menuService.findById(id);
 
@@ -40,7 +40,7 @@ public class MenuController {
                 .body(menu);
     }
 
-    @RequestMapping(value = "${route.menu.createMenu}", method = RequestMethod.POST,
+    @RequestMapping(value = "${route.menu.createmenu}", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
@@ -77,7 +77,7 @@ public class MenuController {
         }
     }
 
-    @RequestMapping(value = "${route.menu.createmenu}", method = RequestMethod.POST,
+    @RequestMapping(value = "${route.menu.updatemenu}", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )

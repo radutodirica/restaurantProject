@@ -9,14 +9,14 @@ spring:
       INDENT_OUTPUT: true
 
   datasource:
-    #url: "jdbc:mysql://localhost:3306/test_schema"
-    url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
+    url: "jdbc:mysql://localhost:3306/test_schema"
+    #url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
     driverClassName: com.mysql.jdbc.Driver
-    #username: root
+    username: root
     #password: parola123 #home
-    #password: Kinetix@1920
-    username: user_1920
-    password: kinetix1920
+    password: Kinetix@1920
+    #username: user_1920
+    #password: kinetix1920
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -41,7 +41,7 @@ route:
     ceraterestaurant: createRestaurant
     updaterestaurant: updateRestaurant
   menu:
-    getmenu: getMenus
+    getmenus: getMenus
     createmenu: createMenu
     updatemenu: updateMenu
 
