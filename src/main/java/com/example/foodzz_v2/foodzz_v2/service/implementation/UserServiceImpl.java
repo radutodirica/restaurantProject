@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User saveUsername(UserDTO userDTO){
+    public User saveUsername(UserDTO userDTO) throws PersistenceException{
 
         bCryptPasswordEncoder = new BCryptPasswordEncoder();
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.PersistenceException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.stream.Collectors;
@@ -49,13 +50,22 @@ public class RegisterRestController {
                     .body(statusObject);
         }
         else{
-            userServiceImpl.saveUsername(userDTO);
-            statusObject.setStatus(2);
-            statusObject.setMessage(messages.get("text.info.username.created"));
-            return ResponseEntity
-                    .status(HttpStatus.OK)
-                    .cacheControl(CacheControl.noCache())
-                    .body(statusObject);
+            try{
+                userServiceImpl.saveUsername(userDTO);
+                statusObject.setStatus(2);
+                statusObject.setMessage(messages.get("text.info.username.created"));
+                return ResponseEntity
+                        .status(HttpStatus.OK)
+                        .cacheControl(CacheControl.noCache())
+                        .body(statusObject);
+            }catch (PersistenceException e){
+                statusObject.setStatus(1);
+                statusObject.setMessage(messages.get("text.error.generalerror"));
+                return ResponseEntity
+                        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                        .cacheControl(CacheControl.noCache())
+                        .body(statusObject);
+            }
         }
     }
 

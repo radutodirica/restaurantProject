@@ -6,7 +6,8 @@ import com.example.foodzz_v2.foodzz_v2.model.Menu;
 public interface MenuService {
 
     public Menu findById(long id);
-    public void createMenu(MenuDTO menuDTO);
-    public void saveMenu(MenuDTO menuDTO);
+    public Menu getByName(String name);
+    public Menu createMenu(MenuDTO menuDTO);
+    public void updateMenu(MenuDTO menuDTO);
 
 }

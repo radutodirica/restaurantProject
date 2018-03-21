@@ -10,7 +10,7 @@ public interface RestaurantService {
 
     public Restaurant getById(Long id);
     public Restaurant getByName(String name);
-    public Restaurant saveRestaurant(RestaurantDTO restaurantDTO);
+    public Restaurant createRestaurant(RestaurantDTO restaurantDTO);
     public void updateRestaurant(RestaurantDTO restaurantDTO)throws PersistenceException;
 
 }

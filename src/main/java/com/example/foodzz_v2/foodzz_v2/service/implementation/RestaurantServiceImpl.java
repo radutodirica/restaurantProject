@@ -30,7 +30,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public Restaurant saveRestaurant(RestaurantDTO restaurantDTO) {
+    public Restaurant createRestaurant(RestaurantDTO restaurantDTO) throws PersistenceException{
 
         Restaurant restaurant = new Restaurant();
 
@@ -43,6 +43,10 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public void updateRestaurant(RestaurantDTO restaurantDTO) throws PersistenceException {
+        Restaurant restaurant = new Restaurant();
 
+        restaurant.setName(restaurantDTO.getRestaurantDTO().getName());
+        restaurant.setLatitude(restaurantDTO.getRestaurantDTO().getLatitude());
+        restaurant.setLongitude(restaurantDTO.getRestaurantDTO().getLongitude());
     }
 }

@@ -34,11 +34,16 @@ route:
     path: auth
     refresh: refresh
   profile:
-    userprofile: getprofile
-    saveprofile: saveprofile
+    userprofile: getProfile
+    saveprofile: saveProfile
   restaurants:
     listrestaurants: getRestaurants
-    ceraterestaurants: createRestaurant
+    ceraterestaurant: createRestaurant
+    updaterestaurant: updateRestaurant
+  menu:
+    getmenu: getMenus
+    createmenu: createMenu
+    updatemenu: updateMenu
 
 logging:
   level:

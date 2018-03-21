@@ -1,88 +1,72 @@
 package com.example.foodzz_v2.foodzz_v2.controller;
 
-import com.example.foodzz_v2.foodzz_v2.dto.RestaurantDTO;
-import com.example.foodzz_v2.foodzz_v2.jwt.JwtTokenUtil;
-import com.example.foodzz_v2.foodzz_v2.model.Restaurant;
-import com.example.foodzz_v2.foodzz_v2.service.RestaurantService;
-import com.example.foodzz_v2.foodzz_v2.service.UserService;
+import com.example.foodzz_v2.foodzz_v2.dto.MenuDTO;
+import com.example.foodzz_v2.foodzz_v2.model.Menu;
+import com.example.foodzz_v2.foodzz_v2.service.MenuService;
 import com.example.foodzz_v2.foodzz_v2.util.Messages;
 import com.example.foodzz_v2.foodzz_v2.util.StatusObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.PersistenceException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-public class RestaurantController {
-
-    @Value("${jwt.header}")
-    private String tokenHeader;
+public class MenuController {
 
     @Autowired
-    private JwtTokenUtil jwtTokenUtil;
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private RestaurantService restaurantServices;
+    private MenuService menuService;
 
     @Autowired
     Messages messages;
 
-    @RequestMapping(value = "${route.restaurants.listrestaurants}", method = RequestMethod.GET,
+    @RequestMapping(value = "${route.menu.getMenus}/{id}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public @ResponseBody
-    ResponseEntity<List<Restaurant>> getRestaurants(HttpServletRequest request) {
-        String token = request.getHeader(tokenHeader).substring(7);
+    ResponseEntity<Menu> getRestaurants(@PathVariable long id) {
 
-        List<Restaurant>restaurants = userService.getByUsername(jwtTokenUtil.getUsernameFromToken(token)).getRestaurantList();
+        Menu menu = menuService.findById(id);
+
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .cacheControl(CacheControl.noCache())
-                .body(restaurants);
+                .body(menu);
     }
 
-    @RequestMapping(value = "${route.restaurants.ceraterestaurant}", method = RequestMethod.POST,
+    @RequestMapping(value = "${route.menu.createMenu}", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public @ResponseBody
-    ResponseEntity<StatusObject> createRestaurant(HttpServletRequest request) throws IOException {
+    ResponseEntity<StatusObject> createMenu(HttpServletRequest request)throws IOException{
         StatusObject statusObject = new StatusObject();
 
         String collect = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-        RestaurantDTO restaurantDTO = new RestaurantDTO(collect);
+        MenuDTO menuDTO = new MenuDTO(collect);
 
-        if(restaurantServices.getByName(restaurantDTO.getRestaurantDTO().getName())!=null){
+        if(menuService.getByName(menuDTO.getMenuDTO().getName())!=null){
             statusObject.setStatus(1);
-            statusObject.setMessage(messages.get("text.error.restaurant.alreadyTaken"));
+            statusObject.setMessage(messages.get("text.error.menu.alreadyTaken"));
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .cacheControl(CacheControl.noCache())
                     .body(statusObject);
-        }else{
-            try{
-                restaurantServices.createRestaurant(restaurantDTO);
+        }else {
+            try {
+                menuService.createMenu(menuDTO);
                 statusObject.setStatus(2);
-                statusObject.setMessage(messages.get("text.info.restaurant.created"));
+                statusObject.setMessage(messages.get("text.info.menu.created"));
                 return ResponseEntity
                         .status(HttpStatus.OK)
                         .cacheControl(CacheControl.noCache())
                         .body(statusObject);
-            }catch (PersistenceException e){
+            } catch (PersistenceException e) {
                 statusObject.setStatus(1);
                 statusObject.setMessage(messages.get("text.error.generalerror"));
                 return ResponseEntity
@@ -90,31 +74,29 @@ public class RestaurantController {
                         .cacheControl(CacheControl.noCache())
                         .body(statusObject);
             }
-
         }
     }
 
-    @RequestMapping(value = "${route.restaurants.updaterestaurant}", method = RequestMethod.POST,
+    @RequestMapping(value = "${route.menu.createmenu}", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public @ResponseBody
-    ResponseEntity<StatusObject> updateRestaurant(HttpServletRequest request) throws IOException {
+    ResponseEntity<StatusObject> updateMenu(HttpServletRequest request)throws IOException{
         StatusObject statusObject = new StatusObject();
-        //String token = request.getHeader(tokenHeader).substring(7);
 
         String collect = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-        RestaurantDTO restaurantDTO = new RestaurantDTO(collect);
+        MenuDTO menuDTO = new MenuDTO(collect);
 
-        try{
-            restaurantServices.updateRestaurant(restaurantDTO);
+        try {
+            menuService.updateMenu(menuDTO);
             statusObject.setStatus(2);
-            statusObject.setMessage(messages.get("text.info.restaurant.saved"));
+            statusObject.setMessage(messages.get("text.info.menu.saved"));
             return ResponseEntity
                     .status(HttpStatus.OK)
                     .cacheControl(CacheControl.noCache())
                     .body(statusObject);
-        }catch (PersistenceException e){
+        } catch (PersistenceException e) {
             statusObject.setStatus(1);
             statusObject.setMessage(messages.get("text.error.generalerror"));
             return ResponseEntity
@@ -123,4 +105,5 @@ public class RestaurantController {
                     .body(statusObject);
         }
     }
+
 }
