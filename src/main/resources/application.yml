@@ -9,19 +9,23 @@ spring:
       INDENT_OUTPUT: true
 
   datasource:
-    url: "jdbc:mysql://localhost:3306/test_schema"
+    #url: "jdbc:mysql://localhost:3306/test_schema"
+    url: jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com/dg45lu4cf093t?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
     #url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
-    driverClassName: com.mysql.jdbc.Driver
-    username: root
+    driverClassName: org.postgresql.Driver
+    #username: root
     #password: parola123 #home
-    password: Kinetix@1920
+    #password: Kinetix@1920
     #username: user_1920
     #password: kinetix1920
+    username: tmyvmjybucxkch
+    password: 1c96c3354e2492bf83c8228c0f098f4dc30755035dcc03d86abdc90354416f0c
 
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database-platform: org.hibernate.dialect.PostgreSQL82Dialect
     show-sql: true
-    hibernate.ddl-auto: update
+    hibernate.ddl-auto: create-drop
+    database: postgresql
 
 jwt:
   header: Authorization

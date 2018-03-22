@@ -74,7 +74,6 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                 logger.warn("the token signature is not valid ", e);
             }
         } else {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED,messages.get("text.error.token.siganture"));
             logger.warn("couldn't find bearer string, will ignore the header");
         }
 

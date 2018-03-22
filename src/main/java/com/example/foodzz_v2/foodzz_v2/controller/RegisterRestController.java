@@ -42,7 +42,7 @@ public class RegisterRestController {
 
         StatusObject statusObject = new StatusObject();
 
-        if(userServiceImpl.getByUsername(userDTO.getUsername())!=null){
+        if(userServiceImpl.getByUsername(userDTO.getUserDTO().getUsername())!=null){
             statusObject.setStatus(1);
             statusObject.setMessage(messages.get("text.error.username.alreadyTaken"));
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)

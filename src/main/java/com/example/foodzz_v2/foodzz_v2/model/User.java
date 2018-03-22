@@ -3,12 +3,13 @@ package com.example.foodzz_v2.foodzz_v2.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "USER")
-public class User {
+@Table(name = "USER_DATA")
+public class User implements Serializable {
 
     @Id
     @Column(name = "ID")
