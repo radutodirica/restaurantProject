@@ -1,0 +1,63 @@
+# config context path to "/" by setting an empty string
+server:
+  contextPath:
+
+# JACKSON
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+  datasource:
+    #url: jdbc:mysql://localhost:3306/test_schema
+
+    #url: jdbc:postgresql://ec2-54-228-181-43.eu-west-1.compute.amazonaws.com/robolsdholkrvc?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+
+    url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
+
+    #driverClassName: org.postgresql.Driver
+    driverClassName: com.mysql.jdbc.Driver
+
+    #username: root
+    #password: parola123 #home
+    #password: Kinetix@1920
+
+    username: user_1920
+    password: kinetix1920
+
+    #username: d2ifuabd798nm1
+    #password: 7aca52ac00ff642e2d4f0967c24fa9f9727557b853d53f216c6c39e2eaf258d1
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    #database-platform: org.hibernate.dialect.PostgreSQL82Dialect
+    show-sql: true
+    hibernate.ddl-auto: update
+    #database: postgresql
+
+jwt:
+  header: Authorization
+  secret: /wKLE9vxudoWuZMwKHV63YCpADquNgt/K+HLPwfw0q4=
+  expiration: 604800
+
+route:
+  register: register
+  authentication:
+    path: auth
+    refresh: refresh
+  profile:
+    userprofile: getProfile
+    saveprofile: saveProfile
+  restaurants:
+    listrestaurants: getRestaurants
+    ceraterestaurant: createRestaurant
+    updaterestaurant: updateRestaurant
+  menu:
+    getmenus: getMenus
+    createmenu: createMenu
+    updatemenu: updateMenu
+
+logging:
+  level:
+    org.springframework:
+      security: DEBUG
