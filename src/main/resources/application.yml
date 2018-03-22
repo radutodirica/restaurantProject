@@ -9,23 +9,31 @@ spring:
       INDENT_OUTPUT: true
 
   datasource:
-    #url: "jdbc:mysql://localhost:3306/test_schema"
-    url: jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com/dg45lu4cf093t?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
-    #url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
-    driverClassName: org.postgresql.Driver
+    #url: jdbc:mysql://localhost:3306/test_schema
+
+    #url: jdbc:postgresql://ec2-54-228-181-43.eu-west-1.compute.amazonaws.com/robolsdholkrvc?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+
+    url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
+
+    #driverClassName: org.postgresql.Driver
+    driverClassName: com.mysql.jdbc.Driver
+
     #username: root
     #password: parola123 #home
     #password: Kinetix@1920
-    #username: user_1920
-    #password: kinetix1920
-    username: tmyvmjybucxkch
-    password: 1c96c3354e2492bf83c8228c0f098f4dc30755035dcc03d86abdc90354416f0c
+
+    username: user_1920
+    password: kinetix1920
+
+    #username: d2ifuabd798nm1
+    #password: 7aca52ac00ff642e2d4f0967c24fa9f9727557b853d53f216c6c39e2eaf258d1
 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQL82Dialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    #database-platform: org.hibernate.dialect.PostgreSQL82Dialect
     show-sql: true
-    hibernate.ddl-auto: create-drop
-    database: postgresql
+    hibernate.ddl-auto: update
+    #database: postgresql
 
 jwt:
   header: Authorization
