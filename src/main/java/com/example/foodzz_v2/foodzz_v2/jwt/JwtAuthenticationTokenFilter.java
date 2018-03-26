@@ -7,6 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -70,7 +71,10 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED,messages.get("text.error.token.expired"));
                 logger.warn("the token is expired and not valid anymore ", e);
             }catch (SignatureException e){
-                response.sendError(HttpServletResponse.SC_UNAUTHORIZED,messages.get("text.error.token.siganture"));
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED,messages.get("text.error.token.signature"));
+                logger.warn("the token signature is not valid ", e);
+            }catch(DisabledException e){
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED,messages.get("text.error.token.disabled"));
                 logger.warn("the token signature is not valid ", e);
             }
         } else {
