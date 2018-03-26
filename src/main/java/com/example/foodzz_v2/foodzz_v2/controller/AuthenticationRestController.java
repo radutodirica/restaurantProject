@@ -63,7 +63,7 @@ public class AuthenticationRestController {
             return ResponseEntity.ok(new JwtAuthenticationResponse(token));
         }catch (AuthenticationException e){
             statusObject.setStatus(1);
-            statusObject.setMessage(messages.get("text.error.username.userdisabled"));
+            statusObject.setMessage(e.getMessage());
             return ResponseEntity.badRequest().body(statusObject);
         }
     }
