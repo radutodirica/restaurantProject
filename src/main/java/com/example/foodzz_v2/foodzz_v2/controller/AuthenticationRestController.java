@@ -4,6 +4,8 @@ import com.example.foodzz_v2.foodzz_v2.jwt.JwtAuthenticationRequest;
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtTokenUtil;
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtUser;
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtAuthenticationResponse;
+import com.example.foodzz_v2.foodzz_v2.util.Messages;
+import com.example.foodzz_v2.foodzz_v2.util.StatusObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -35,11 +37,14 @@ public class AuthenticationRestController {
     private JwtTokenUtil jwtTokenUtil;
 
     @Autowired
+    Messages messages;
+
+    @Autowired
     private UserDetailsService userDetailsService;
 
     @RequestMapping(value = "${route.authentication.path}", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
-
+        StatusObject statusObject = new StatusObject();
         // Perform the security
         try {
             final Authentication authentication = authenticationManager.authenticate(
@@ -57,7 +62,9 @@ public class AuthenticationRestController {
             // Return the token
             return ResponseEntity.ok(new JwtAuthenticationResponse(token));
         }catch (AuthenticationException e){
-            return ResponseEntity.badRequest().body(null);
+            statusObject.setStatus(1);
+            statusObject.setMessage(messages.get("text.error.username.userdisabled"));
+            return ResponseEntity.badRequest().body(statusObject);
         }
     }
 
