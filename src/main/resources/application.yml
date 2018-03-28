@@ -9,7 +9,8 @@ spring:
       INDENT_OUTPUT: true
 
   datasource:
-    url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
+    #url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
+    url: jdbc:mysql://localhost:3306/test_schema
     driverClassName: com.mysql.jdbc.Driver
     username: user_1920
     password: kinetix1920

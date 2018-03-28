@@ -74,7 +74,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED,messages.get("text.error.token.signature"));
                 logger.warn("the token signature is not valid ", e);
             }catch(DisabledException e){
-                response.sendError(HttpServletResponse.SC_UNAUTHORIZED,messages.get("text.error.token.disabled"));
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED,messages.get("text.error.token.userdisabled"));
                 logger.warn("the token signature is not valid ", e);
             }
         } else {

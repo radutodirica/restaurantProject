@@ -82,7 +82,10 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/mihai_foodzz
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
@@ -96,6 +99,7 @@
 			<version>2.8.2</version>
 		</dependency>
 
+<<<<<<< HEAD
 		<!-- https://mvnrepository.com/artifact/org.springframework.mobile/spring-mobile-device -->
 		<dependency>
 			<groupId>org.springframework.mobile</groupId>
@@ -104,6 +108,14 @@
 		</dependency>
 
 
+=======
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901-1.jdbc4</version>
+		</dependency>
+
+>>>>>>> origin/mihai_foodzz
 	</dependencies>
 
 	<build>
