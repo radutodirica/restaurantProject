@@ -1,7 +1,6 @@
 package com.example.foodzz_v2.foodzz_v2.service.implementation;
 
 import com.example.foodzz_v2.foodzz_v2.dto.UserDTO;
-import com.example.foodzz_v2.foodzz_v2.model.Restaurant;
 import com.example.foodzz_v2.foodzz_v2.model.User;
 import com.example.foodzz_v2.foodzz_v2.repository.UserRepository;
 import com.example.foodzz_v2.foodzz_v2.service.UserService;
@@ -10,7 +9,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.PersistenceException;
-import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {

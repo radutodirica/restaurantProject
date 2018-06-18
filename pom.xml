@@ -8,7 +8,7 @@
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>FoodzzV2</name>
+	<commentContent>FoodzzV2</commentContent>
 	<description>Restaurant chain app</description>
 
 	<parent>
@@ -101,6 +101,18 @@
 			<groupId>org.springframework.mobile</groupId>
 			<artifactId>spring-mobile-device</artifactId>
 			<version>1.1.5.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>0.7.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.javamoney</groupId>
+			<artifactId>moneta</artifactId>
+			<version>1.1</version>
 		</dependency>
 
 

@@ -12,8 +12,8 @@ spring:
     #url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
     url: jdbc:mysql://localhost:3306/test_schema
     driverClassName: com.mysql.jdbc.Driver
-    username: user_1920
-    password: kinetix1920
+    username: root
+    password: parola123
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -33,14 +33,41 @@ route:
   profile:
     userprofile: getProfile
     saveprofile: saveProfile
-  restaurants:
-    listrestaurants: getRestaurants
-    ceraterestaurant: createRestaurant
-    updaterestaurant: updateRestaurant
+  establishment:
+    listestablishment: getEstablishment
+    cerateestablishment: createEstablishment
+    updateestablishment: updateEstablishment
+    deleteestablishment: deleteEsablishment
+
+    getcommentestablishment: getCommentEstablishment
+    createcommmentestablishment: createCommentEstablishment
+    updatecommentestablishment: updateCommentEstablishment
+    deletecommentestablishment: deleteCommentEsatblishment
+
+    listfeaturesestablishment: getFeaturesEstablishment
+    ceratefeaturesestablishment: createFeaturesEstablishment
+    updatefeaturesestablishment: updateFeaturesEstablishment
+    deletefeaturesestablishment: deleteFeaturesEsablishment
+
+    listmealestablishment: getMealEstablishment
+    ceratemealestablishment: createMealEstablishment
+    updatemealestablishment: updateMealEstablishment
+    deletemealestablishment: deleteMealEsablishment
+
+    listpriceestablishment: getPriceEstablishment
+    ceratepriceestablishment: createPriceEstablishment
+    updatepriceestablishment: updatePriceEstablishment
+    deletepriceestablishment: deletePriceEsablishment
+
+    listqualityestablishment: getQualityEstablishment
+    ceratequalityestablishment: createQualityEstablishment
+    updatequalityestablishment: updateQualityEstablishment
+    deletequalityestablishment: deleteQualityEsablishment
   menu:
     getmenus: getMenus
     createmenu: createMenu
     updatemenu: updateMenu
+
 
 logging:
   level:

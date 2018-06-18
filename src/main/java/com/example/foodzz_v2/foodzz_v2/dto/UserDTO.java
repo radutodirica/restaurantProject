@@ -58,19 +58,9 @@ public class UserDTO{
     }
 
     private UserDTO userDTO;
-
-    @SerializedName("username")
     private String username;
-
-    @SerializedName("password")
     private String password;
-
-    @SerializedName("firstName")
     private String firstName;
-
-    @SerializedName("lastName")
     private String lastName;
-
-    @SerializedName("email")
     private String email;
 }

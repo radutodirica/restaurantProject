@@ -1,46 +1,17 @@
 package com.example.foodzz_v2.foodzz_v2.model;
 
 
+import com.example.foodzz_v2.foodzz_v2.model.establishment.Establishment;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "MENU")
 public class Menu {
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public List<SubMenu> getMenuList() {
-        return menuList;
-    }
-
-    public void setMenuList(List<SubMenu> menuList) {
-        this.menuList = menuList;
-    }
 
     @Id
     @Column(name = "ID")
@@ -55,6 +26,9 @@ public class Menu {
     @Column(name = "price", length = 50)
     @NotNull
     private Double price;
+
+    @ManyToMany(mappedBy = "menuList")
+    private Set<Establishment> establishments;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(
