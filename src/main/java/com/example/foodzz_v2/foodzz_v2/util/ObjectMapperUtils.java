@@ -5,6 +5,7 @@ import org.modelmapper.convention.MatchingStrategies;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ObjectMapperUtils {
@@ -55,6 +56,21 @@ public class ObjectMapperUtils {
         return entityList.stream()
                 .map(entity -> map(entity, outCLass))
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * <p>Note: outClass object must have default constructor with no arguments</p>
+     *
+     * @param entityList list of entities that needs to be mapped
+     * @param outCLass   class of result list element
+     * @param <D>        type of objects in result list
+     * @param <T>        type of entity in <code>entityList</code>
+     * @return set of mapped object with <code><D></code> type.
+     */
+    public static <D, T> Set<D> mapAllSet(final Collection<T> entityList, Class<D> outCLass) {
+        return entityList.stream()
+                .map(entity -> map(entity, outCLass))
+                .collect(Collectors.toSet());
     }
 
     /**

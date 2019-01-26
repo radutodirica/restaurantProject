@@ -1,11 +1,24 @@
 package com.example.foodzz_v2.foodzz_v2.dto.establishmentdto;
 
-import com.example.foodzz_v2.foodzz_v2.dto.UserDTO;
-import com.example.foodzz_v2.foodzz_v2.model.User;
+import com.example.foodzz_v2.foodzz_v2.dto.productdto.CategoryDTO;
 
 import java.util.Set;
 
 public class EstablishmentDTO {
+
+    private String name;
+    private String establishmentUUID;
+    private String description;
+    private String cuisine;
+    private double latitude;
+    private double longitude;
+    private String city;
+    private String county;
+    private String country;
+    private double establishmentRaiting;
+    private double userRaiting;
+    private Set<FeatureDTO> features;
+    private Set<CategoryDTO> categoryList;
 
     public EstablishmentDTO(){}
 
@@ -33,22 +46,6 @@ public class EstablishmentDTO {
         this.cuisine = cuisine;
     }
 
-    public Set<Integer> getRating() {
-        return rating;
-    }
-
-    public void setRating(Set<Integer> rating) {
-        this.rating = rating;
-    }
-
-    public Set<EstablishmentCommentDTO> getEstablishmentComments() {
-        return establishmentComments;
-    }
-
-    public void setEstablishmentComments(Set<EstablishmentCommentDTO> establishmentComments) {
-        this.establishmentComments = establishmentComments;
-    }
-
     public double getLatitude() {
         return latitude;
     }
@@ -65,74 +62,67 @@ public class EstablishmentDTO {
         this.longitude = longitude;
     }
 
-    public String getCityUUID() {
-        return cityUUID;
+    public String getCity() {
+        return city;
     }
 
-    public void setCityUUID(String cityUUID) {
-        this.cityUUID = cityUUID;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getCountyUUID() {
-        return countyUUID;
+    public String getCounty() {
+        return county;
     }
 
-    public void setCountyUUID(String countyUUID) {
-        this.countyUUID = countyUUID;
+    public void setCounty(String county) {
+        this.county = county;
     }
 
-    public String getCountryUUID() {
-        return countryUUID;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCountryUUID(String countryUUID) {
-        this.countryUUID = countryUUID;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public EstablishmentPriceDTO getEstablishmentPrice() {
-        return establishmentPrice;
+    public String getEstablishmentUUID() {
+        return establishmentUUID;
     }
 
-    public void setEstablishmentPrice(EstablishmentPriceDTO establishmentPrice) {
-        this.establishmentPrice = establishmentPrice;
+    public void setEstablishmentUUID(String establishmentUUID) {
+        this.establishmentUUID = establishmentUUID;
     }
 
-    public Set<EstablishmentFeatureDTO> getEstablishmentFeatures() {
-        return establishmentFeatures;
+    public double getEstablishmentRaiting() {
+        return establishmentRaiting;
     }
 
-    public void setEstablishmentFeatures(Set<EstablishmentFeatureDTO> establishmentFeatures) {
-        this.establishmentFeatures = establishmentFeatures;
+    public void setEstablishmentRaiting(double establishmentRaiting) {
+        this.establishmentRaiting = establishmentRaiting;
     }
 
-    public Set<EstablishmentMealDTO> getEstablishmentMeals() {
-        return establishmentMeals;
+    public double getUserRaiting() {
+        return userRaiting;
     }
 
-    public void setEstablishmentMeals(Set<EstablishmentMealDTO> establishmentMeals) {
-        this.establishmentMeals = establishmentMeals;
+    public void setUserRaiting(double userRaiting) {
+        this.userRaiting = userRaiting;
     }
 
-    public Set<EstablishmentQualityDTO> getEstablishmentQualities() {
-        return establishmentQualities;
+    public Set<FeatureDTO> getFeatures() {
+        return features;
     }
 
-    public void setEstablishmentQualities(Set<EstablishmentQualityDTO> establishmentQualities) {
-        this.establishmentQualities = establishmentQualities;
+    public void setFeatures(Set<FeatureDTO> features) {
+        this.features = features;
     }
 
-    private String name;
-    private String description;
-    private String cuisine;
-    private Set<Integer> rating;
-    private Set<EstablishmentCommentDTO> establishmentComments;
-    private double latitude;
-    private double longitude;
-    private String cityUUID;
-    private String countyUUID;
-    private String countryUUID;
-    private EstablishmentPriceDTO establishmentPrice;
-    private Set<EstablishmentFeatureDTO> establishmentFeatures;
-    private Set<EstablishmentMealDTO> establishmentMeals;
-    private Set<EstablishmentQualityDTO> establishmentQualities;
+    public Set<CategoryDTO> getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(Set<CategoryDTO> categoryList) {
+        this.categoryList = categoryList;
+    }
 }

@@ -9,16 +9,38 @@ spring:
       INDENT_OUTPUT: true
 
   datasource:
-    #url: jdbc:mysql://dbdev101.ccx7hdurz6w7.eu-west-1.rds.amazonaws.com/devtest102
-    url: jdbc:mysql://localhost:3306/test_schema
+#    url: jdbc:sqlite:C:\Files\IntelliJ\SQLite\SQLiteDatabaseBrowserPortable\Data\test.db
+#    driverClassName: org.sqlite.JDBC
+
+    url: jdbc:mysql://127.0.0.1:3306/test
     driverClassName: com.mysql.jdbc.Driver
     username: root
-    password: parola123
+    password: root
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     hibernate.ddl-auto: update
+
+  mail:
+      default-encoding: UTF-8
+      host: smtp.gmail.com
+      username: radu.todirica07@gmail.com
+      password: jsutpocvneunohjp
+      port: 587
+      properties:
+        mail:
+          smtp:
+            auth: true
+            starttls:
+              enable: true
+      protocol: smtp
+      test-connection: false
+
+#  jpa:
+#    show-sql: true
+#    hibernate.ddl-auto: update
+#    database-platform: com.enigmabridge.hibernate.dialect.SQLiteDialect
 
 jwt:
   header: Authorization
@@ -34,39 +56,66 @@ route:
     userprofile: getProfile
     saveprofile: saveProfile
   establishment:
-    listestablishment: getEstablishment
-    cerateestablishment: createEstablishment
+    getestablishment: getEstablishment
+    getestablishments: getEstablishments
+    getmyestablishments: getMyEstablishments
+    createestablishment: createEstablishment
     updateestablishment: updateEstablishment
-    deleteestablishment: deleteEsablishment
+    deleteestablishment: deleteEstablishment
 
-    getcommentestablishment: getCommentEstablishment
-    createcommmentestablishment: createCommentEstablishment
-    updatecommentestablishment: updateCommentEstablishment
-    deletecommentestablishment: deleteCommentEsatblishment
+    getcomment: getComment
+    getcomments: getComments
+    createcommment: createComment
+    updatecomment: updateComment
+    deletecomment: deleteComment
 
-    listfeaturesestablishment: getFeaturesEstablishment
-    ceratefeaturesestablishment: createFeaturesEstablishment
-    updatefeaturesestablishment: updateFeaturesEstablishment
-    deletefeaturesestablishment: deleteFeaturesEsablishment
+    getfeature: getFeature
+    getfeatures: getFeatures
+    createfeatures: createFeatures
+    updatefeatures: updateFeatures
+    deletefeatures: deleteFeatures
 
-    listmealestablishment: getMealEstablishment
-    ceratemealestablishment: createMealEstablishment
-    updatemealestablishment: updateMealEstablishment
-    deletemealestablishment: deleteMealEsablishment
+    getmeal: getMeal
+    getmeals: getMeals
+    createmeal: createMeal
+    updatemeal: updateMeal
+    deletemeal: deleteMeal
 
     listpriceestablishment: getPriceEstablishment
-    ceratepriceestablishment: createPriceEstablishment
+    createpriceestablishment: createPriceEstablishment
     updatepriceestablishment: updatePriceEstablishment
     deletepriceestablishment: deletePriceEsablishment
 
     listqualityestablishment: getQualityEstablishment
-    ceratequalityestablishment: createQualityEstablishment
+    createqualityestablishment: createQualityEstablishment
     updatequalityestablishment: updateQualityEstablishment
     deletequalityestablishment: deleteQualityEsablishment
-  menu:
-    getmenus: getMenus
-    createmenu: createMenu
-    updatemenu: updateMenu
+
+    getmyestablishmentraiting: getMyEstablishmentRaiting
+    addestablishmentraiting: addEstablishmentRaiting
+    editestablishmentraiting: editEstablishmentRaiting
+    removeestablishmentraiting: removeEstablishmentRaiting
+
+
+  category:
+    getcategory: getCategory
+    getcategories: getCategories
+    createcategory: createCategory
+    updatecategory: updateCategory
+    deletecategory: deleteCategory
+  product:
+    getproduct: getProduct
+    getproducts: getProducts
+    createproduct: createProduct
+    updateproduct: updateProduct
+    deleteproduct: deleteProduct
+  ingredient:
+    getingredient: getIngredient
+    getingredients: getIngredients
+    createingredient: createIngredient
+    updateingredient: updateIngredient
+    deleteingredient: deleteIngredient
+
 
 
 logging:

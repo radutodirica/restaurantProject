@@ -2,7 +2,14 @@ package com.example.foodzz_v2.foodzz_v2.util;
 
 import java.util.List;
 
-public class StatusObject {
+public class StatusObject <T> {
+
+    private int status;
+    private String message;
+    private List<?> genericListResponse;
+    private T genericResponse;
+
+    public StatusObject() {}
 
     public int getStatus() {
         return status;
@@ -28,9 +35,11 @@ public class StatusObject {
         this.genericListResponse = genericListResponse;
     }
 
-    private int status;
-    private String message;
-    private List<?> genericListResponse;
+    public T getGenericResponse() {
+        return genericResponse;
+    }
 
-    public StatusObject() {}
+    public void setGenericResponse(T genericResponse) {
+        this.genericResponse = genericResponse;
+    }
 }

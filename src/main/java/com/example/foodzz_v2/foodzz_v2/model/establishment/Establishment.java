@@ -1,7 +1,7 @@
 package com.example.foodzz_v2.foodzz_v2.model.establishment;
 
-import com.example.foodzz_v2.foodzz_v2.model.Menu;
-import com.example.foodzz_v2.foodzz_v2.model.User;
+import com.example.foodzz_v2.foodzz_v2.model.product.Category;
+import com.example.foodzz_v2.foodzz_v2.model.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,6 +12,69 @@ import java.util.Set;
 @Entity
 @Table(name = "ESTABLISHMENT")
 public class Establishment {
+
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
+
+    @Column(name = "name", length = 50, unique = true)
+    @NotNull
+    @Size(min = 4, max = 50)
+    private String name;
+
+    @Column(name = "description", length = 1000)
+    @NotNull
+    @Size(min = 4, max = 1000)
+    private String description;
+
+    @Column(name = "cuisine", length = 50)
+    @NotNull
+    @Size(min = 4, max = 50)
+    private String cuisine;
+
+    @Column(name = "latitude")
+    @NotNull
+    private Double latitude;
+
+    @Column(name = "longitude")
+    @NotNull
+    private Double longitude;
+
+    @Column(name = "establishment_uuid")
+    @NotNull
+    private String establishmentUUID;
+
+    @Column(name = "city")
+    @NotNull
+    private String city;
+
+    @Column(name = "county")
+    @NotNull
+    private String county;
+
+    @Column(name = "country")
+    @NotNull
+    private String country;
+
+    @OneToMany(mappedBy="establishment", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval=true)
+    private Set<Category> categoryList;
+
+    @ManyToMany(mappedBy = "establishments")
+    @NotNull
+    private List<User> users;
+
+    @OneToMany(mappedBy = "establishment", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval=true)
+    private Set<Comment> comments;
+
+    @OneToMany(mappedBy = "featuresEstablishment", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval=true)
+    private Set<Feature> features;
+
+    @ManyToMany(mappedBy = "qualityEstablishment")
+    private Set<Quality> establishmentQualities;
+
+    @OneToMany(mappedBy = "establishment", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Raiting> raitings;
 
     public Long getId() {
         return id;
@@ -45,14 +108,6 @@ public class Establishment {
         this.cuisine = cuisine;
     }
 
-    public Set<Integer> getRating() {
-        return rating;
-    }
-
-    public void setRating(Set<Integer> rating) {
-        this.rating = rating;
-    }
-
     public Double getLatitude() {
         return latitude;
     }
@@ -61,12 +116,12 @@ public class Establishment {
         this.latitude = latitude;
     }
 
-    public Set<EstablishmentComment> getEstablishmentComments() {
-        return establishmentComments;
+    public Set<Comment> getComments() {
+        return comments;
     }
 
-    public void setEstablishmentComments(Set<EstablishmentComment> establishmentComments) {
-        this.establishmentComments = establishmentComments;
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 
     public Double getLongitude() {
@@ -85,151 +140,67 @@ public class Establishment {
         this.establishmentUUID = establishmentUUID;
     }
 
-    public String getCityUUID() {
-        return cityUUID;
+    public String getCity() {
+        return city;
     }
 
-    public void setCityUUID(String cityUUID) {
-        this.cityUUID = cityUUID;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getCountyUUID() {
-        return countyUUID;
+    public String getCounty() {
+        return county;
     }
 
-    public void setCountyUUID(String countyUUID) {
-        this.countyUUID = countyUUID;
+    public void setCounty(String county) {
+        this.county = county;
     }
 
-    public String getCountryUUID() {
-        return countryUUID;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCountryUUID(String countryUUID) {
-        this.countryUUID = countryUUID;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public List<Menu> getMenuList() {
-        return menuList;
+    public Set<Category> getCategoryList() {
+        return categoryList;
     }
 
-    public void setMenuList(List<Menu> menuList) {
-        this.menuList = menuList;
+    public void setCategoryList(Set<Category> categoryList) {
+        this.categoryList = categoryList;
     }
 
-    public User getUsers() {
-        return users;
+    public Set<Feature> getFeatures() {
+        return features;
     }
 
-    public void setUsers(User users) {
-        this.users = users;
+    public void setFeatures(Set<Feature> features) {
+        this.features = features;
     }
 
-    public Set<EstablishmentMeal> getEstablishmentMeals() {
-        return establishmentMeals;
-    }
-
-    public void setEstablishmentMeals(Set<EstablishmentMeal> establishmentMeals) {
-        this.establishmentMeals = establishmentMeals;
-    }
-
-    public EstablishmentPrice getEstablishmentPrice() {
-        return establishmentPrice;
-    }
-
-    public void setEstablishmentPrice(EstablishmentPrice establishmentPrice) {
-        this.establishmentPrice = establishmentPrice;
-    }
-
-    public Set<EstablishmentFeatures> getEstablishmentFeatures() {
-        return establishmentFeatures;
-    }
-
-    public void setEstablishmentFeatures(Set<EstablishmentFeatures> establishmentFeatures) {
-        this.establishmentFeatures = establishmentFeatures;
-    }
-
-    public Set<EstablishmentQuality> getEstablishmentQualities() {
+    public Set<Quality> getEstablishmentQualities() {
         return establishmentQualities;
     }
 
-    public void setEstablishmentQualities(Set<EstablishmentQuality> establishmentQualities) {
+    public void setEstablishmentQualities(Set<Quality> establishmentQualities) {
         this.establishmentQualities = establishmentQualities;
     }
 
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    public List<User> getUsers() {
+        return users;
+    }
 
-    @Column(name = "name", length = 50, unique = true)
-    @NotNull
-    @Size(min = 4, max = 50)
-    private String name;
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 
-    @Column(name = "description", length = 1000)
-    @NotNull
-    @Size(min = 4, max = 1000)
-    private String description;
+    public List<Raiting> getRaitings() {
+        return raitings;
+    }
 
-    @Column(name = "cuisine", length = 50, unique = true)
-    @NotNull
-    @Size(min = 4, max = 50)
-    private String cuisine;
-
-    @Column(name = "rating")
-    @NotNull
-    private Set<Integer> rating;
-
-    @Column(name = "latitude")
-    @NotNull
-    private Double latitude;
-
-    @OneToMany(mappedBy = "commentList", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @NotNull
-    private Set<EstablishmentComment> establishmentComments;
-
-    @Column(name = "longitude")
-    @NotNull
-    private Double longitude;
-
-    @Column(name = "establishment_uuid")
-    @NotNull
-    private String establishmentUUID;
-
-    @Column(name = "city_uuid")
-    @NotNull
-    private String cityUUID;
-
-    @Column(name = "county_uuid")
-    @NotNull
-    private String countyUUID;
-
-    @Column(name = "country_uuid")
-    @NotNull
-    private String countryUUID;
-
-    @OneToMany(mappedBy="establishment", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @NotNull
-    private List<Menu> menuList;
-
-    @ManyToMany(mappedBy = "establishments")
-    @NotNull
-    private User users;
-
-    @ManyToMany(mappedBy = "mealList")
-    @NotNull
-    private Set<EstablishmentMeal> establishmentMeals;
-
-    @ManyToMany(mappedBy = "priceList")
-    @NotNull
-    private EstablishmentPrice establishmentPrice;
-
-    @ManyToMany(mappedBy = "futuresList")
-    @NotNull
-    private Set<EstablishmentFeatures> establishmentFeatures;
-
-    @ManyToMany(mappedBy = "qualityList")
-    @NotNull
-    private Set<EstablishmentQuality> establishmentQualities;
+    public void setRaitings(List<Raiting> raitings) {
+        this.raitings = raitings;
+    }
 }

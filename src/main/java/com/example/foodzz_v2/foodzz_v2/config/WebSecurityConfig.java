@@ -62,12 +62,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class)
                     .antMatcher("/getProfile")
-                    .antMatcher("/saveProfile")
-                    .antMatcher("/getRestaurants")
-                    .antMatcher("/createRestaurant")
-                    .antMatcher("/updateRestaurant")
-                    .antMatcher("/getMenus")
-                    .antMatcher("/createMenu")
-                    .antMatcher("/updateMenu");
+                    .antMatcher("/saveProfile");
+//                    .antMatcher("/getRestaurants")
+//                    .antMatcher("/createRestaurant")
+//                    .antMatcher("/updateRestaurant")
+//                    .antMatcher("/getMenus")
+//                    .antMatcher("/createMenu")
+//                    .antMatcher("/updateMenu");
     }
 }

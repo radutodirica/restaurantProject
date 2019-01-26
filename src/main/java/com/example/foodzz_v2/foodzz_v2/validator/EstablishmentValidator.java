@@ -13,17 +13,17 @@ public class EstablishmentValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        ValidationUtils.rejectIfEmpty(errors, "name", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "description", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "cuisine", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "latitude", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "longitude", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "cityUUID", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "countyUUID", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "countryUUID", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "establishmentPrice", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "establishmentFeatures", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "establishmentMeals", "text.error.article.empty");
-        ValidationUtils.rejectIfEmpty(errors, "establishmentQualities", "text.error.article.empty");
+        ValidationUtils.rejectIfEmpty(errors, "name", "text.error.establishment.name.empty");
+        ValidationUtils.rejectIfEmpty(errors, "description", "text.error.establishment.description.empty");
+        ValidationUtils.rejectIfEmpty(errors, "cuisine", "text.error.establishment.cuisine.empty");
+        ValidationUtils.rejectIfEmpty(errors, "latitude", "text.error.establishment.latitude.empty");
+        ValidationUtils.rejectIfEmpty(errors, "longitude", "text.error.establishment.longitude.empty");
+        ValidationUtils.rejectIfEmpty(errors, "city", "text.error.establishment.cityUUID.empty");
+        ValidationUtils.rejectIfEmpty(errors, "county", "text.error.establishment.countyUUID.empty");
+        ValidationUtils.rejectIfEmpty(errors, "country", "text.error.establishment.countryUUID.empty");
+//        ValidationUtils.rejectIfEmpty(errors, "establishmentPrice", "text.error.establishment.price.empty");
+//        ValidationUtils.rejectIfEmpty(errors, "establishmentFeatures", "text.error.establishment.features.empty");
+//        ValidationUtils.rejectIfEmpty(errors, "establishmentMeals", "text.error.establishment.meals.empty");
+//        ValidationUtils.rejectIfEmpty(errors, "establishmentQualities", "text.error.establishment.qualities.empty");
     }
 }

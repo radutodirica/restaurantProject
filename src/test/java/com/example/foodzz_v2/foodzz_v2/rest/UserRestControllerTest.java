@@ -3,9 +3,9 @@ package com.example.foodzz_v2.foodzz_v2.rest;
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtTokenUtil;
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtUser;
 import com.example.foodzz_v2.foodzz_v2.jwt.JwtUserFactory;
-import com.example.foodzz_v2.foodzz_v2.model.Authority;
+import com.example.foodzz_v2.foodzz_v2.model.user.Authority;
 import com.example.foodzz_v2.foodzz_v2.util.AuthorityName;
-import com.example.foodzz_v2.foodzz_v2.model.User;
+import com.example.foodzz_v2.foodzz_v2.model.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -66,12 +66,12 @@ public class UserRestControllerTest {
 
         Authority authority = new Authority();
         authority.setId(1L);
-        authority.setName(AuthorityName.ROLE_ADMIN);
+        authority.setName(AuthorityName.ROLE_ADMIN.toString());
         List<Authority> authorities = Arrays.asList(authority);
 
         User user = new User();
         user.setUsername("username");
-        user.setAuthorities(authorities);
+        user.setAuthority(authority);
         user.setEnabled(Boolean.TRUE);
         user.setLastPasswordResetDate(new Date(System.currentTimeMillis() + 1000 * 1000));
 
